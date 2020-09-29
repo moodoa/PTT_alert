@@ -2,7 +2,7 @@
 爬取限定時間內 PTT 上的熱門文章。(推、噓皆算)
 
 
-![alt text](https://miro.medium.com/max/1050/1*ypslG7x_vZF28O9X-l1ZVQ.jpeg)
+![alt text](https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php7CYMfK.jpg)
 
 ## ptt_alert.py
 * 以 `PTT 論壇名稱`、`限定時間(分鐘)` 為參數爬取限定時間內 PTT 特定論壇的熱門文章。
