@@ -33,7 +33,7 @@ class PTT_alert():
             url = next_page_url
             for article_info in self.single_page_articles_collector(url):
                 all_articles.append(article_info)
-                if self.is_in_recent(article_info["href"], self.minutes) == False:
+                if self.is_in_recent(article_info["post_time"], self.minutes) == False:
                     time_exceed = True
         return all_articles
 
@@ -48,17 +48,25 @@ class PTT_alert():
             if a_item:
                 title = item.select_one("a").text
                 reaction = item.select_one("div.nrec").text
+                href = "https://www.ptt.cc"+ a_item.get("href")
                 article_info["reaction"] = reaction
                 article_info["title"] = title
-                article_info["href"] = "https://www.ptt.cc"+ a_item.get("href")
+                article_info["href"] = href
+                article_info["post_time"] = self.get_article_time(href)
                 page_articles_info.append(article_info)
         return page_articles_info
 
-    def is_in_recent(self, article_url, minutes_ago):
+    def get_article_time(self, article_url):
         content = self.session.get(article_url).content
         soup = BeautifulSoup(content, "html.parser")
-        post_time_str = soup.select("span.article-meta-value")[-1].text
-        post_time = datetime.strptime(post_time_str, "%a %b %d %H:%M:%S %Y")
+        if soup.select("span.article-meta-value"):
+            post_time_str = soup.select("span.article-meta-value")[-1].text
+            post_time = datetime.strptime(post_time_str, "%a %b %d %H:%M:%S %Y")
+            return post_time
+        else:
+            pass
+
+    def is_in_recent(self, post_time, minutes_ago):
         last_check_point = datetime.now() + timedelta(minutes = minutes_ago)
         return post_time >= last_check_point
 
