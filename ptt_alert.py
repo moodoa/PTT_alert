@@ -33,8 +33,11 @@ class PTT_alert():
             url = next_page_url
             for article_info in self.single_page_articles_collector(url):
                 all_articles.append(article_info)
-                if self.is_in_recent(article_info["post_time"], self.minutes) == False:
-                    time_exceed = True
+                try:
+                    if self.is_in_recent(article_info["post_time"], self.minutes) == False:
+                        time_exceed = True
+                except:
+                    pass
         return all_articles
 
     def single_page_articles_collector(self, url):
