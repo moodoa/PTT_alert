@@ -78,7 +78,8 @@ class PTT_alert():
         all_articles = self.all_articles_collector()
         for article in all_articles:
             if self.is_hot_article(article["reaction"]):
-                hot_articles.append(article)
+                if article["title"] and article["title"][:4] != "[公告]":
+                    hot_articles.append(article)
         return hot_articles
 
     def is_hot_article(self, reaction):
