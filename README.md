@@ -1,5 +1,5 @@
 # PTT alert
-爬取限定時間內 PTT 上的熱門文章。(推、噓皆算)
+爬取限定時間內 PTT 上的熱門文章(推、噓皆算)，並透過 airflow 自動化傳送訊息至 LINE。
 
 
 ![alt text](https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php7CYMfK.jpg)
