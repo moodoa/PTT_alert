@@ -20,12 +20,11 @@ def get_articles(forum, minutes_ago, over_x_reaction):
             file.writelines(database)
     return output
 
-def article_sender():
-    last_5_min_articles = (get_articles("Gossiping", -5, 16))
-    last_10_min_articles = (get_articles("Gossiping", -10, 50))
-    last_20_min_articles = (get_articles("Gossiping", -20, 90))
-
-    return last_5_min_articles+"\n"+last_10_min_articles+"\n"+last_20_min_articles
+def article_sender(crawl_infos):
+    articles = ""
+    for crawl_info in crawl_infos:
+        articles += (get_articles(crawl_info[0], crawl_info[1], crawl_info[2]))
+    return articles
 
 if __name__ == "__main__":
-    print(article_sender())
+    print(article_sender([("NBA", -5, 16),("Gossiping", -10, 50)]))

@@ -16,13 +16,8 @@ python 3
 ```
 initialize.py
 
-def article_sender():
-    last_5_min_articles = (get_articles("NBA", -5, 16))
-    last_10_min_articles = (get_articles("Gossiping", -10, 50))
-    return last_5_min_articles+"\n"+last_10_min_articles
-
 if __name__ == "__main__":
-    print(article_sender())
+    print(article_sender([("NBA", -5, 16),("Gossiping", -10, 50)]))
 
 ```
 ## Installation
