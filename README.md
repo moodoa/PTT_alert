@@ -26,6 +26,6 @@ if __name__ == "__main__":
 
 ```
 ## Installation
-`pip install -r requriements.txt`
+`pip install -r requriements.txt`。
 若要使用 `airflow` 則需要額外安裝相關套件。
 
