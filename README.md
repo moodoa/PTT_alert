@@ -1,8 +1,8 @@
 # PTT alert
-爬取限定時間內 PTT 上的熱門文章(推、噓皆算)，並透過 airflow 自動化傳送訊息至 LINE。
+爬取限定時間內 PTT 上的熱門文章(推、噓皆算)，並透過 airflow 自動化傳送訊息至 LINE/Slack。
 
 
-![alt text](https://img.ltn.com.tw/Upload/liveNews/BigPic/600_php7CYMfK.jpg)
+![alt text](https://cdn-images-1.medium.com/max/1000/1*a4MkwodUgFf-wXzIEAtoGw.png)
 
 ## ptt_alert.py
 * 以 `PTT 論壇名稱`、`限定時間(分鐘)` 為參數爬取限定時間內 PTT 特定論壇的熱門文章。
